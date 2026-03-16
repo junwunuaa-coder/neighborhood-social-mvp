@@ -25,9 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 text-slate-900 antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground antialiased`}
+      >
         <TopNav />
-        <main className="mx-auto min-h-[calc(100vh-56px)] max-w-6xl px-4 py-6">{children}</main>
+        <main className="mx-auto min-h-[calc(100vh-70px)] w-full max-w-6xl px-4 py-6 sm:px-6">
+          {children}
+        </main>
       </body>
     </html>
   );

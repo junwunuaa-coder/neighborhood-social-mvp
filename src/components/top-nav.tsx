@@ -1,29 +1,53 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/", label: "首页" },
-  { href: "/feed", label: "邻里广场" },
-  { href: "/help", label: "求助互助" },
-  { href: "/market", label: "闲置交易" },
-  { href: "/events", label: "活动报名" },
-  { href: "/property", label: "物业工单" },
-  { href: "/onboarding", label: "住户认证" },
+  { href: "/feed", label: "广场" },
+  { href: "/help", label: "互助" },
+  { href: "/market", label: "闲置" },
+  { href: "/events", label: "活动" },
+  { href: "/property", label: "工单" },
+  { href: "/onboarding", label: "认证" },
 ];
 
 export function TopNav() {
+  const pathname = usePathname();
+
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center gap-3 overflow-x-auto px-4 py-3">
-        <span className="whitespace-nowrap text-sm font-semibold text-slate-900">小区社交 MVP</span>
-        {links.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="whitespace-nowrap rounded-full border border-slate-200 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            {item.label}
-          </Link>
-        ))}
+    <header className="sticky top-0 z-20 border-b border-slate-200/80 bg-white/95 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:px-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-base font-semibold text-slate-900">邻里社区</p>
+            <p className="text-xs text-slate-500">微信社区风 · 小区试点版</p>
+          </div>
+          <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">
+            Beta
+          </span>
+        </div>
+
+        <nav className="flex gap-2 overflow-x-auto pb-1">
+          {links.map((item) => {
+            const active =
+              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`whitespace-nowrap rounded-full px-3 py-1.5 text-sm transition ${
+                  active
+                    ? "bg-[#07C160] text-white shadow-sm"
+                    : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
       </div>
     </header>
   );

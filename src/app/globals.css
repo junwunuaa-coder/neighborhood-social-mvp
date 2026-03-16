@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
+  --background: #f4f6f8;
   --foreground: #0f172a;
+  --wechat-green: #07c160;
+  --wechat-green-weak: #e9f9f0;
 }
 
 @theme inline {
@@ -18,7 +20,25 @@
 
 body {
   margin: 0;
-  background: var(--background);
+  background: radial-gradient(circle at top, #f8fbfa 0%, var(--background) 45%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.wechat-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.wechat-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  line-height: 20px;
+  background: var(--wechat-green-weak);
+  color: #067647;
 }
