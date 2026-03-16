@@ -22,17 +22,16 @@ export function TopNav() {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-base font-semibold text-slate-900">邻里社区</p>
-            <p className="text-xs text-slate-500">微信社区风 · 小区试点版</p>
+            <p className="text-xs text-slate-500">一站式互助 · 闲置 · 活动 · 工单</p>
           </div>
           <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">
-            Beta
+            微信社区风 Beta
           </span>
         </div>
 
-        <nav className="flex gap-2 overflow-x-auto pb-1">
+        <nav className="hidden gap-2 overflow-x-auto pb-1 sm:flex">
           {links.map((item) => {
-            const active =
-              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
