@@ -25,6 +25,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid #07c160;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
 .wechat-card {
   border: 1px solid #e5e7eb;
   border-radius: 16px;
@@ -35,6 +45,14 @@ body {
 
 .wechat-card:hover {
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .wechat-pill {

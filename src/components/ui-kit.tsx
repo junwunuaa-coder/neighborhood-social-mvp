@@ -47,3 +47,30 @@ export function DotTag({ children, tone = "green" }: { children: ReactNode; tone
 
   return <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${styles[tone]}`}>{children}</span>;
 }
+
+export function AvatarPill({ name, meta }: { name: string; meta?: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className="grid h-9 w-9 place-content-center rounded-full bg-emerald-100 text-xs font-semibold text-emerald-700">
+        {name.slice(0, 1)}
+      </div>
+      <div>
+        <p className="text-sm font-medium text-slate-800">{name}</p>
+        {meta ? <p className="text-xs text-slate-500">{meta}</p> : null}
+      </div>
+    </div>
+  );
+}
+
+export function KpiStrip({ items }: { items: Array<{ label: string; value: string }> }) {
+  return (
+    <div className="grid gap-2 sm:grid-cols-3">
+      {items.map((item) => (
+        <div key={item.label} className="rounded-xl border border-emerald-100 bg-emerald-50/60 p-3">
+          <p className="text-xs text-emerald-700">{item.label}</p>
+          <p className="mt-1 text-xl font-semibold text-slate-900">{item.value}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
