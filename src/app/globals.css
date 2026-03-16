@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f6f8;
+  --background: #f6f8fc;
   --foreground: #0f172a;
-  --wechat-green: #07c160;
-  --wechat-green-weak: #e9f9f0;
+  --brand: #4f46e5;
+  --brand-weak: #eef2ff;
 }
 
 @theme inline {
@@ -20,7 +20,10 @@
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #f8fbfa 0%, var(--background) 45%);
+  background:
+    radial-gradient(circle at 10% 0%, #eef2ff 0%, transparent 35%),
+    radial-gradient(circle at 90% 20%, #ecfeff 0%, transparent 25%),
+    var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -30,21 +33,21 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid #07c160;
+  outline: 2px solid var(--brand);
   outline-offset: 2px;
   border-radius: 8px;
 }
 
 .wechat-card {
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .wechat-card:hover {
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -62,6 +65,6 @@ a {
   padding: 2px 10px;
   font-size: 12px;
   line-height: 20px;
-  background: var(--wechat-green-weak);
-  color: #067647;
+  background: var(--brand-weak);
+  color: #3730a3;
 }

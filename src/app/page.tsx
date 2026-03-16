@@ -39,19 +39,19 @@ export default function HomePage() {
   return (
     <div className="space-y-6">
       <SectionCard className="overflow-hidden p-0">
-        <div className="bg-gradient-to-r from-[#07C160] to-[#22c55e] p-6 text-white sm:p-8">
-          <p className="text-sm text-emerald-100">微信社区风 · Social Proof + Minimal Direct</p>
-          <h1 className="mt-1 text-3xl font-bold">邻里连接，不靠刷屏</h1>
-          <p className="mt-3 max-w-3xl text-sm text-emerald-50">
-            把微信群里的碎片信息，变成可检索、可追踪、可协作的社区工作台。
+        <div className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 p-6 text-white sm:p-9">
+          <p className="text-sm text-indigo-100">Modern Community Layout · Minimal + Social Proof</p>
+          <h1 className="mt-1 text-3xl font-semibold tracking-tight sm:text-4xl">邻里社区，一眼看全动态</h1>
+          <p className="mt-3 max-w-3xl text-sm text-indigo-50 sm:text-base">
+            用现代信息流和清晰分层，把互助、闲置、活动、工单放到一个统一入口。
           </p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <ActionButton href="/onboarding">马上加入社区</ActionButton>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <ActionButton href="/onboarding">加入社区</ActionButton>
             <Link
               className="rounded-full border border-white/60 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
               href="/feed"
             >
-              先看看大家在聊什么
+              浏览广场
             </Link>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function HomePage() {
         {cards.map((item) => (
           <article key={item.title} className="wechat-card p-4">
             <p className="text-xs text-slate-500">{item.title}</p>
-            <p className="mt-2 text-2xl font-bold text-slate-900">{item.value}</p>
+            <p className="mt-2 text-2xl font-semibold text-slate-900">{item.value}</p>
             <p className="mt-1 text-xs text-slate-500">{item.desc}</p>
           </article>
         ))}
@@ -78,7 +78,7 @@ export default function HomePage() {
       <SectionCard>
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold">热门主题</h2>
-          <Link href="/feed" className="text-sm text-emerald-600 hover:text-emerald-700">
+          <Link href="/feed" className="text-sm text-indigo-600 hover:text-indigo-700">
             查看全部
           </Link>
         </div>
@@ -94,13 +94,13 @@ export default function HomePage() {
         <SectionCard className="lg:col-span-2">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold">今日最新动态</h2>
-            <Link href="/feed" className="text-sm text-emerald-600 hover:text-emerald-700">
+            <Link href="/feed" className="text-sm text-indigo-600 hover:text-indigo-700">
               查看全部
             </Link>
           </div>
           <div className="mt-3 space-y-3">
             {posts.slice(0, 3).map((post) => (
-              <div key={post.id} className="rounded-xl border border-slate-100 bg-slate-50/60 p-3">
+              <div key={post.id} className="rounded-xl border border-slate-100 bg-slate-50/70 p-3">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-2">
                     <DotTag tone={categoryTone[post.category] ?? "slate"}>{post.category}</DotTag>
@@ -133,7 +133,7 @@ export default function HomePage() {
             <h3 className="font-semibold">本周活动</h3>
             <div className="mt-3 space-y-2 text-sm">
               {events.map((event) => (
-                <div key={event.id} className="rounded-lg bg-emerald-50/50 p-2">
+                <div key={event.id} className="rounded-lg bg-indigo-50/50 p-2">
                   <p className="font-medium text-slate-900">{event.title}</p>
                   <p className="text-xs text-slate-600">
                     {event.date} · {event.location}
@@ -158,6 +158,22 @@ export default function HomePage() {
       </SectionCard>
 
       <SectionCard>
+        <h2 className="text-lg font-semibold">快捷入口</h2>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {shortcuts.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-2xl border border-slate-100 bg-slate-50 p-3 transition hover:border-indigo-200 hover:bg-indigo-50/40"
+            >
+              <p className="text-sm font-semibold text-slate-900">{item.label}</p>
+              <p className="text-xs text-slate-600">{item.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </SectionCard>
+
+      <SectionCard>
         <h3 className="font-semibold">工单进度</h3>
         <div className="mt-3 space-y-2 text-sm">
           {tickets.map((ticket) => (
@@ -167,22 +183,6 @@ export default function HomePage() {
                 {ticket.status} · {ticket.createdAt}
               </p>
             </div>
-          ))}
-        </div>
-      </SectionCard>
-
-      <SectionCard>
-        <h2 className="text-lg font-semibold">一键发帖</h2>
-        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {shortcuts.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-2xl border border-slate-100 bg-slate-50 p-3 transition hover:border-emerald-200 hover:bg-emerald-50/40"
-            >
-              <p className="text-sm font-semibold text-slate-900">{item.label}</p>
-              <p className="text-xs text-slate-600">{item.desc}</p>
-            </Link>
           ))}
         </div>
       </SectionCard>

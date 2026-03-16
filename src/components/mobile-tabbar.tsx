@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const items = [
-  { href: "/", label: "首页", icon: "🏠" },
-  { href: "/feed", label: "广场", icon: "🧭" },
-  { href: "/help", label: "互助", icon: "🆘" },
-  { href: "/market", label: "闲置", icon: "🛍️" },
-  { href: "/property", label: "工单", icon: "🧰" },
+  { href: "/", label: "首页", short: "H" },
+  { href: "/feed", label: "广场", short: "F" },
+  { href: "/help", label: "互助", short: "A" },
+  { href: "/market", label: "闲置", short: "M" },
+  { href: "/property", label: "工单", short: "T" },
 ];
 
 export function MobileTabbar() {
@@ -24,10 +24,16 @@ export function MobileTabbar() {
               key={item.href}
               href={item.href}
               className={`flex flex-col items-center rounded-xl py-1.5 text-[11px] ${
-                active ? "text-[#07C160]" : "text-slate-500"
+                active ? "text-indigo-600" : "text-slate-500"
               }`}
             >
-              <span className="text-base leading-none">{item.icon}</span>
+              <span
+                className={`grid h-5 w-5 place-content-center rounded-full text-[10px] font-semibold ${
+                  active ? "bg-indigo-100 text-indigo-700" : "bg-slate-100 text-slate-500"
+                }`}
+              >
+                {item.short}
+              </span>
               <span className="mt-1">{item.label}</span>
             </Link>
           );

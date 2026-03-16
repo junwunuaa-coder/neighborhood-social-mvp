@@ -17,15 +17,15 @@ export function TopNav() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-200/80 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-slate-200/80 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:px-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-base font-semibold text-slate-900">邻里社区</p>
-            <p className="text-xs text-slate-500">一站式互助 · 闲置 · 活动 · 工单</p>
+            <p className="text-base font-semibold text-slate-900">Neighbor Hub</p>
+            <p className="text-xs text-slate-500">Modern Community Interface</p>
           </div>
-          <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">
-            微信社区风 Beta
+          <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700">
+            Modern UI
           </span>
         </div>
 
@@ -38,7 +38,7 @@ export function TopNav() {
                 href={item.href}
                 className={`whitespace-nowrap rounded-full px-3 py-1.5 text-sm transition ${
                   active
-                    ? "bg-[#07C160] text-white shadow-sm"
+                    ? "bg-indigo-600 text-white shadow-sm"
                     : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
                 }`}
               >
